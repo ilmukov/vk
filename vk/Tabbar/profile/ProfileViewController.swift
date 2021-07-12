@@ -2,23 +2,27 @@
 //  ProfileViewController.swift
 //  vk
 //
-//  Created by Stepan Ilmukov on 27.06.2021.
+//  Created by Stepan Ilmukov on 12.07.2021.
 //
 
 import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+   
+    
+    let cells = ["Друзья", "Группы", "Музыка"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileTableViewCell
+        cell.menuName.text = cells[indexPath.row]
+        return cell
     }
-
 }
